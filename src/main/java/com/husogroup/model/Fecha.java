@@ -2,11 +2,25 @@ package com.husogroup.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
+
+@Entity
+@Table (name = "fecha")
 public class Fecha {
 
+	@Id
+	@Column
 	private int id;
+	@Column
 	private Date fecha;
+	@Column
 	private Date hora;
+	@Column
 	private String estado;
 
 	public Fecha(int id, Date fecha, Date hora, String estado) {
