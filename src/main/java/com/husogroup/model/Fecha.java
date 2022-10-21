@@ -23,12 +23,8 @@ public class Fecha {
 	@Column
 	private String estado;
 
-	public Fecha(int id, Date fecha, Date hora, String estado) {
-		super();
-		this.id = id;
-		this.fecha = fecha;
-		this.hora = hora;
-		this.estado = estado;
+	public Fecha() {
+	
 	}
 
 	public int getId() {
@@ -62,5 +58,13 @@ public class Fecha {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public String toString() {
+		return "Fecha [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", estado=" + estado + "]";
+	}
+	
+	
+	
 
 }

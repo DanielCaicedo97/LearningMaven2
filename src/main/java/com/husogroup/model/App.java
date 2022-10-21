@@ -2,9 +2,7 @@ package com.husogroup.model;
 
 import java.util.Date;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import com.husogroup.controller.FechaController;
 
 // Main class
 public class App {
@@ -13,27 +11,39 @@ public class App {
 	public static void main(String[] args) {
 
 		System.out.println("Iniciando Programa ...");
-		// Create Configuration
-		Configuration configuration = new Configuration();
-		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
-
-		// Create Session Factory
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
-
-		// Initialize Session Object
-		Session session = sessionFactory.openSession();
-
+		
+		// Crear FECHA //
+		/*
 		Date fecha = new Date();
 		Date hora = new Date();
 		Fecha fecha1 = new Fecha(0, fecha, hora, "1");
 
-		session.beginTransaction();
-
-		// Here we have used
-		// save() method of JPA
-		session.save(fecha1);
-
-		session.getTransaction().commit();
+		boolean crearFecha = new FechaController().Create(fecha1);
+		System.out.println(crearFecha ? "Fecha creada" : "Fecha no creada");
+		*/
+		
+		//////////////////// ////////////////////////////////////////////////////////
+		
+		// Actualizar Fecha 
+		/*
+		Date fecha = new Date();
+		Date hora = new Date();
+		String estado = "0"; 
+		
+		boolean actualizarFecha = new FechaController().Update(2, fecha, hora, estado);
+		System.out.println(actualizarFecha ? "Fecha actualizada" : "Fecha no actualizada");
+		
+		*/
+		
+		/*
+		// Borrar Fecha
+		boolean BorrarFecha = new FechaController().Delete(3);
+		System.out.println( BorrarFecha? "Fecha Borrada " : "Fecha no Borrada");
+		*/
+		
+		String ConsultarFecha = new FechaController().Get(3);
+		
+		System.out.println(ConsultarFecha);
+		
 	}
 }
