@@ -7,3 +7,28 @@
 java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Fecha.setEstado(String)" because "fecha2" is null
 	at com.husogroup.controller.FechaController.DoubleUpdate(FechaController.java:158)
 	at com.husogroup.classes.App.main(App.java:19)
+[2022-10-25 14:25:20] [ ERROR] [AdministradorController:58] Could not locate cfg.xml resource [hibernate.cgf.xml]
+org.hibernate.internal.util.config.ConfigurationException: Could not locate cfg.xml resource [hibernate.cgf.xml]
+	at org.hibernate.boot.cfgxml.internal.ConfigLoader.loadConfigXmlResource(ConfigLoader.java:53)
+	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:244)
+	at org.hibernate.cfg.Configuration.configure(Configuration.java:304)
+	at com.husogroup.model.AdministradorModel.get(AdministradorModel.java:68)
+	at com.husogroup.controller.AdministradorController.get(AdministradorController.java:55)
+	at com.husogroup.classes.App.main(App.java:29)
+[2022-10-25 14:26:16] [ ERROR] [AdministradorController:58] Could not locate cfg.xml resource [hibernate.cgf.xml]
+org.hibernate.internal.util.config.ConfigurationException: Could not locate cfg.xml resource [hibernate.cgf.xml]
+	at org.hibernate.boot.cfgxml.internal.ConfigLoader.loadConfigXmlResource(ConfigLoader.java:53)
+	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:244)
+	at org.hibernate.cfg.Configuration.configure(Configuration.java:304)
+	at com.husogroup.model.AdministradorModel.get(AdministradorModel.java:68)
+	at com.husogroup.controller.AdministradorController.get(AdministradorController.java:55)
+	at com.husogroup.classes.App.main(App.java:29)
+[2022-10-25 14:30:48] [ ERROR] [AdministradorController:58] Mapping (RESOURCE) not found : com/husogroup/classes/Administrador.hbm.xml : origin(com/husogroup/classes/Administrador.hbm.xml)
+org.hibernate.boot.MappingNotFoundException: Mapping (RESOURCE) not found : com/husogroup/classes/Administrador.hbm.xml : origin(com/husogroup/classes/Administrador.hbm.xml)
+	at org.hibernate.boot.jaxb.internal.XmlSources.fromResource(XmlSources.java:48)
+	at org.hibernate.boot.MetadataSources.addResource(MetadataSources.java:330)
+	at org.hibernate.cfg.Configuration.addResource(Configuration.java:528)
+	at org.hibernate.cfg.Configuration.addClass(Configuration.java:552)
+	at com.husogroup.model.AdministradorModel.get(AdministradorModel.java:69)
+	at com.husogroup.controller.AdministradorController.get(AdministradorController.java:55)
+	at com.husogroup.classes.App.main(App.java:29)

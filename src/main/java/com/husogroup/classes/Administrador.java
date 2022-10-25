@@ -106,5 +106,13 @@ public class Administrador {
 		this.contrasena = contrasena;
 	}
 
+	@Override
+	public String toString() {
+		return "Administrador [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono
+				+ ", correoElectronico=" + correoElectronico + ", documento=" + documento + ", contrasena=" + contrasena
+				+ ", correoRecuperacion=" + correoRecuperacion + ", ultimaSesion=" + ultimaSesion + "]";
+	}
+
+	
 	
 }

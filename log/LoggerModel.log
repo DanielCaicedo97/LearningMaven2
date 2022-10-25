@@ -323,3 +323,24 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'contrasena' in 'fie
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994)
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
 	... 21 more
+[2022-10-25 14:58:01] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:28)
+[2022-10-25 15:11:09] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:28)
+[2022-10-25 16:09:54] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:32)

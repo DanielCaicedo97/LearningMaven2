@@ -11,17 +11,38 @@ public class App {
 	public static void main(String[] args) {
 
 		// Creando un Administrador
+//
+//		String nombre = "Daniel", Apellido = "Caicedo", telefono = "3251275", documento = "1234189060",
+//				correoElectronico = "daniel@correo.com", correoRecuperacion = "alejandro@correo.com";
+//
+//		int contrasena = 1234;
+//		Date ultimaSesion = new Date();
 
-		String nombre = "Daniel", Apellido = "Caicedo", telefono = "3251275", documento = "1234189060",
-				correoElectronico = "daniel@correo.com", correoRecuperacion = "alejandro@correo.com";
+//		boolean admin = new AdministradorController().create(0, nombre, Apellido, telefono, documento,
+//				correoElectronico, contrasena, correoRecuperacion, ultimaSesion);
+//		
+//		System.out.println(admin ? "Creado" : "no creado");
 
-		int contrasena = 1234;
-		Date ultimaSesion = new Date();
+		// Consultando Administrador
 
-		boolean admin = new AdministradorController().create(0, nombre, Apellido, telefono, documento,
-				correoElectronico, contrasena, correoRecuperacion, ultimaSesion);
-		System.out.println(admin ? "Creado" : "no creado");
+		Administrador adminConsulta = new AdministradorController().get(3);
+		System.out.println(adminConsulta != null ? adminConsulta.toString() : "no es posible consultarlo");
 
+		// Eliminando Administrador
+		boolean adminDelete = new AdministradorController().delete(3);
+		System.out.println(adminDelete ? "eliminado" : "no es posible Eliminarlo");
+
+		// Actualizando la hora del sesion del administrador
+		Administrador adminUpdate = new AdministradorController().get(4);
+
+		Date nuevaSession = new Date();
+
+		boolean adminUpdated = new AdministradorController().Update( adminUpdate.getId(), adminUpdate.getNombre(),
+				adminUpdate.getApellido(), adminUpdate.getTelefono(), adminUpdate.getDocumento(),
+				adminUpdate.getCorreoElectronico(), adminUpdate.getContrasena(), adminUpdate.getCorreoRecuperacion(),
+				nuevaSession);
+		
+		System.out.println(adminUpdated? "Actualizado" : "no es posible Actualizar");
 		/*
 		 * 
 		 * System.out.println("Iniciando Programa ...");
