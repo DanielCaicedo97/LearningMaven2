@@ -1,4 +1,4 @@
-package com.husogroup.model;
+package com.husogroup.classes;
 
 import java.util.Date;
 

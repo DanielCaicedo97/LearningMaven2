@@ -1,0 +1,5 @@
+[2022-10-24 16:16:40] [ INFO ] [App:21] java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Fecha.setEstado(String)" because "fecha2" is null
+[2022-10-24 16:24:15] [ INFO ] [App:21] java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Fecha.setEstado(String)" because "fecha2" is null
+[2022-10-24 16:46:52] [ INFO ] [App:21] jakarta.persistence.PersistenceException: Converting `org.hibernate.exception.DataException` to JPA `PersistenceException` : could not execute statement
+[2022-10-24 16:47:50] [ INFO ] [App:21] jakarta.persistence.PersistenceException: Converting `org.hibernate.exception.DataException` to JPA `PersistenceException` : could not execute statement
+[2022-10-24 16:50:23] [ INFO ] [App:21] Actualizado
