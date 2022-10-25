@@ -2,21 +2,32 @@ package com.husogroup.classes;
 
 import java.util.Date;
 
-import org.apache.log4j.Logger;
-
-import com.husogroup.controller.FechaController;
+import com.husogroup.controller.AdministradorController;
 
 // Main class
 public class App {
 
-
 	// Main driver method
 	public static void main(String[] args) {
 
-		System.out.println("Iniciando Programa ...");
+		// Creando un Administrador
 
-		new FechaController().DoubleUpdate(5, 60, "7");
+		String nombre = "Daniel", Apellido = "Caicedo", telefono = "3251275", documento = "1234189060",
+				correoElectronico = "daniel@correo.com", correoRecuperacion = "alejandro@correo.com";
 
+		int contrasena = 1234;
+		Date ultimaSesion = new Date();
+
+		boolean admin = new AdministradorController().create(0, nombre, Apellido, telefono, documento,
+				correoElectronico, contrasena, correoRecuperacion, ultimaSesion);
+		System.out.println(admin ? "Creado" : "no creado");
+
+		/*
+		 * 
+		 * System.out.println("Iniciando Programa ...");
+		 * 
+		 * new FechaController().DoubleUpdate(5, 60, "7");
+		 */
 		/*
 		 * // Practicando con Log4j LogJava.debug("LOG DEBUG");
 		 * LogJava.info("LOG INFO"); LogJava.warn("LOG WARN");

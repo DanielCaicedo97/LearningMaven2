@@ -2,30 +2,36 @@ package com.husogroup.classes;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "administrador")
 public class Administrador {
 
+	@Id
+	@Column
 	private int id;
+	@Column
 	private String nombre;
+	@Column
 	private String apellido;
+	@Column
 	private String telefono;
+	@Column
 	private String correoElectronico;
+	@Column
 	private String documento;
-	private String contraseña;
+	@Column
+	private int contrasena;
+	@Column
 	private String correoRecuperacion;
+	@Column
 	private Date ultimaSesion;
 
-	public Administrador(int id, String nombre, String apellido, String telefono, String correoElectronico,
-			String documento, String contraseña, String correoRecuperacion, Date ultimaSesion) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.telefono = telefono;
-		this.correoElectronico = correoElectronico;
-		this.documento = documento;
-		this.contraseña = contraseña;
-		this.correoRecuperacion = correoRecuperacion;
-		this.ultimaSesion = ultimaSesion;
+	public Administrador() {
 	}
 
 	public int getId() {
@@ -76,14 +82,6 @@ public class Administrador {
 		this.documento = documento;
 	}
 
-	public String getContraseña() {
-		return contraseña;
-	}
-
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
-
 	public String getCorreoRecuperacion() {
 		return correoRecuperacion;
 	}
@@ -99,7 +97,14 @@ public class Administrador {
 	public void setUltimaSesion(Date ultimaSesion) {
 		this.ultimaSesion = ultimaSesion;
 	}
-	
-	
 
+	public int getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(int contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	
 }
