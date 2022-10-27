@@ -2,8 +2,6 @@
 
 import org.apache.log4j.Logger;
 
-import com.husogroup.service.CitaService;
-
 // Main class
 public class App {
 	private static final Logger LOG = Logger.getLogger(App.class);
@@ -12,16 +10,29 @@ public class App {
 	public static void main(String[] args) {
 
 		
-		String asunto = "Revision examenes Hemoglobina...";
-		String termino = "1";
-		int usuarioId = 1;
-		int fechaId = 1;
-		int administradorId = 60;
 		
-		boolean cita = new CitaService().create(administradorId, usuarioId, administradorId, fechaId, asunto, termino);
+		// Creando Exepciones 
 		
 		
-		System.out.println(cita ? "Creado": "No Creado");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		// Crear Cita
+//		String asunto = "Revision examenes Hemoglobina...";
+//		String termino = "1";
+//		int usuarioId = 1;
+//		int fechaId = 1;
+//		int administradorId = 60;
+//		
+//		boolean cita = new CitaService().create(administradorId, usuarioId, administradorId, fechaId, asunto, termino);
+//		
+//		System.out.println(cita ? "Creado": "No Creado");
 		
 		
 		

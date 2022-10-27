@@ -1,15 +1,15 @@
-package com.husogroup.service;
+package com.husogroup.service.impl;
 
 import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.husogroup.dao.FechaDao;
+import com.husogroup.dao.impl.FechaDaoImpl;
 import com.husogroup.model.Fecha;
 
-public class FechaService {
+public class FechaServiceImpl {
 
-	private static final Logger LOG = Logger.getLogger(FechaService.class);
+	private static final Logger LOG = Logger.getLogger(FechaServiceImpl.class);
 
 	public boolean create(int id, Date dia, Date hora, String estado) {
 
@@ -21,7 +21,7 @@ public class FechaService {
 			fecha.setHora(hora);
 			fecha.setEstado(estado);
 
-			return new FechaDao().create(fecha);
+			return new FechaDaoImpl().create(fecha);
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			return false;
@@ -32,7 +32,7 @@ public class FechaService {
 	public boolean delete(int id) {
 		try {
 
-			return new FechaDao().delete(id);
+			return new FechaDaoImpl().delete(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -44,7 +44,7 @@ public class FechaService {
 	public Fecha get(int id) {
 
 		try {
-			return new FechaDao().get(id);
+			return new FechaDaoImpl().get(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -63,7 +63,7 @@ public class FechaService {
 			fecha.setHora(hora);
 			fecha.setEstado(estado);
 
-			return new FechaDao().update(fecha);
+			return new FechaDaoImpl().update(fecha);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);

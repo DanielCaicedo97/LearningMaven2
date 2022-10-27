@@ -1,15 +1,15 @@
-package com.husogroup.service;
+package com.husogroup.service.impl;
 
 import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.husogroup.dao.AdministradorDao;
+import com.husogroup.dao.impl.AdministradorDaoImpl;
 import com.husogroup.model.Administrador;
 
-public class AdministradorService {
+public class AdministradorServiceImpl {
 
-	private static final Logger LOG = Logger.getLogger(AdministradorService.class);
+	private static final Logger LOG = Logger.getLogger(AdministradorServiceImpl.class);
 
 	public boolean create(int id, String nombre, String apellido, String telefono, String documento,
 			String correoElectronico, int contrasena, String correoRecuperacion, Date ultimaSesion) {
@@ -27,7 +27,7 @@ public class AdministradorService {
 			administrador.setCorreoRecuperacion(correoRecuperacion);
 			administrador.setUltimaSesion(ultimaSesion);
 
-			return new AdministradorDao().create(administrador);
+			return new AdministradorDaoImpl().create(administrador);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);
@@ -39,7 +39,7 @@ public class AdministradorService {
 	public boolean delete(int id) {
 		try {
 
-			return new AdministradorDao().delete(id);
+			return new AdministradorDaoImpl().delete(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -51,7 +51,7 @@ public class AdministradorService {
 	public Administrador get(int id) {
 
 		try {
-			return new AdministradorDao().get(id);
+			return new AdministradorDaoImpl().get(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -74,7 +74,7 @@ public class AdministradorService {
 			administrador.setCorreoRecuperacion(correoRecuperacion);
 			administrador.setUltimaSesion(ultimaSesion);
 
-			return new AdministradorDao().update(administrador);
+			return new AdministradorDaoImpl().update(administrador);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);

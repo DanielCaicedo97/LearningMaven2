@@ -1,21 +1,21 @@
-package com.husogroup.dao;
+package com.husogroup.dao.impl;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.husogroup.model.Usuario;
+import com.husogroup.model.Fecha;
 
-public class UsuarioDao {
+public class FechaDaoImpl {
 
-	private static final Logger LOG = Logger.getLogger(UsuarioDao.class);
+	private static final Logger LOG = Logger.getLogger(FechaDaoImpl.class);
 
-	public boolean create(Usuario usuario) {
+	public boolean create(Fecha fecha) {
 
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Usuario.class);
+		configuration.addAnnotatedClass(Fecha.class);
 
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
@@ -24,7 +24,7 @@ public class UsuarioDao {
 		try {
 
 			session.beginTransaction();
-			session.persist(usuario);
+			session.persist(fecha);
 			session.getTransaction().commit();
 			session.close();
 
@@ -37,11 +37,11 @@ public class UsuarioDao {
 
 	}
 
-	public boolean update(Usuario usuario) {
+	public boolean update(Fecha fecha) {
 
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Usuario.class);
+		configuration.addAnnotatedClass(Fecha.class);
 
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
@@ -50,13 +50,11 @@ public class UsuarioDao {
 		try {
 
 			session.beginTransaction();
-			Usuario usuarioUpdate = session.get(Usuario.class, usuario.getId());
+			Fecha fechaUpdate = session.get(Fecha.class, fecha.getId());
 
-			usuarioUpdate.setNombre(usuario.getNombre());
-			usuarioUpdate.setApellido(usuario.getApellido());
-			usuarioUpdate.setDocumento(usuario.getDocumento());
-			usuarioUpdate.setTelefono(usuario.getTelefono());
-			usuarioUpdate.setCorreoElectronico(usuario.getCorreoElectronico());
+			fechaUpdate.setFecha(fecha.getFecha());
+			fechaUpdate.setHora(fecha.getHora());
+			fechaUpdate.setEstado(fecha.getEstado());
 
 			session.getTransaction().commit();
 			session.close();
@@ -74,7 +72,7 @@ public class UsuarioDao {
 
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Usuario.class);
+		configuration.addAnnotatedClass(Fecha.class);
 
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
@@ -83,8 +81,8 @@ public class UsuarioDao {
 		try {
 
 			session.beginTransaction();
-			Usuario usuario = session.get(Usuario.class, id);
-			session.delete(usuario);
+			Fecha fecha = session.get(Fecha.class, id);
+			session.delete(fecha);
 			session.getTransaction().commit();
 			session.close();
 
@@ -94,14 +92,14 @@ public class UsuarioDao {
 
 			LOG.error(e.getMessage(), e);
 			return false;
-		}
 
+		}
 	}
 
-	public Usuario get(int id) {
+	public Fecha get(int id) {
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Usuario.class);
+		configuration.addAnnotatedClass(Fecha.class);
 
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
@@ -110,11 +108,11 @@ public class UsuarioDao {
 		try {
 
 			session.beginTransaction();
-			Usuario usuario = session.get(Usuario.class, id);
+			Fecha fecha = session.get(Fecha.class, id);
 			session.getTransaction().commit();
 			session.close();
 
-			return usuario;
+			return fecha;
 		} catch (Exception e) {
 			session.getTransaction().rollback();
 			LOG.error(e.getMessage(), e);
@@ -122,5 +120,35 @@ public class UsuarioDao {
 		}
 
 	}
+
+//	public void DoubleUpdate(int id1, int id2, String Estado) {
+//		Configuration configuration = new Configuration();
+//		configuration.configure("hibernate.cfg.xml");
+//		configuration.addAnnotatedClass(Fecha.class);
+//
+//		SessionFactory sessionFactory = configuration.buildSessionFactory();
+//
+//		Session session = sessionFactory.openSession();
+//
+//		try {
+//
+//			session.beginTransaction();
+//
+//			Fecha fecha = session.get(Fecha.class, id1);
+//			Fecha fecha2 = session.get(Fecha.class, id2);
+//
+//			fecha.setEstado(Estado);
+//			fecha2.setEstado(Estado);
+//			session.getTransaction().commit();
+//			session.close();
+//
+//		} catch (Exception e) {
+//			session.getTransaction().rollback();
+//			session.close();
+//			LOG.error(e.getMessage(), e);
+//
+//		}
+//
+//	}
 
 }

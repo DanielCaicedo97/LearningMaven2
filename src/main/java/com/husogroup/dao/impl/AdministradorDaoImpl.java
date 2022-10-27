@@ -1,4 +1,4 @@
-package com.husogroup.dao;
+package com.husogroup.dao.impl;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -7,9 +7,9 @@ import org.hibernate.cfg.Configuration;
 
 import com.husogroup.model.Administrador;
 
-public class AdministradorDao {
+public class AdministradorDaoImpl {
 
-	private static final Logger LOG = Logger.getLogger(AdministradorDao.class);
+	private static final Logger LOG = Logger.getLogger(AdministradorDaoImpl.class);
 
 	public boolean create(Administrador administrador) {
 		Configuration configuration = new Configuration();

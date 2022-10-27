@@ -1,21 +1,20 @@
-package com.husogroup.dao;
+package com.husogroup.dao.impl;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.husogroup.model.Fecha;
+import com.husogroup.model.Cita;
 
-public class FechaDao {
+public class CitaDaoImpl {
 
-	private static final Logger LOG = Logger.getLogger(FechaDao.class);
+	private static final Logger LOG = Logger.getLogger(CitaDaoImpl.class);
 
-	public boolean create(Fecha fecha) {
-
+	public boolean create(Cita cita) {
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
+		configuration.addAnnotatedClass(Cita.class);
 
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
@@ -24,131 +23,106 @@ public class FechaDao {
 		try {
 
 			session.beginTransaction();
-			session.persist(fecha);
+			session.persist(cita);
 			session.getTransaction().commit();
 			session.close();
 
 			return true;
+
 		} catch (Exception e) {
 			session.getTransaction().rollback();
 			LOG.error(e.getMessage(), e);
 			return false;
 		}
-
-	}
-
-	public boolean update(Fecha fecha) {
-
-		Configuration configuration = new Configuration();
-		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
-
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
-
-		Session session = sessionFactory.openSession();
-
-		try {
-
-			session.beginTransaction();
-			Fecha fechaUpdate = session.get(Fecha.class, fecha.getId());
-
-			fechaUpdate.setFecha(fecha.getFecha());
-			fechaUpdate.setHora(fecha.getHora());
-			fechaUpdate.setEstado(fecha.getEstado());
-
-			session.getTransaction().commit();
-			session.close();
-
-			return true;
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			LOG.error(e.getMessage(), e);
-			return false;
-		}
-
-	}
+	};
 
 	public boolean delete(int id) {
 
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
+		configuration.addAnnotatedClass(Cita.class);
 
+		// Create Session Factory
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
+		// Initialize Session Object
 		Session session = sessionFactory.openSession();
 
 		try {
 
 			session.beginTransaction();
-			Fecha fecha = session.get(Fecha.class, id);
-			session.delete(fecha);
+			Cita cita = session.get(Cita.class, id);
+
+			session.delete(cita);
 			session.getTransaction().commit();
 			session.close();
-
 			return true;
 		} catch (Exception e) {
-			session.getTransaction().rollback();
-
 			LOG.error(e.getMessage(), e);
 			return false;
-
 		}
 	}
 
-	public Fecha get(int id) {
+	public Cita get(int id) {
+
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
+		configuration.addAnnotatedClass(Cita.class);
 
+		// Create Session Factory
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 
+		// Initialize Session Object
 		Session session = sessionFactory.openSession();
 
 		try {
 
 			session.beginTransaction();
-			Fecha fecha = session.get(Fecha.class, id);
+			Cita cita = session.get(Cita.class, id);
+
 			session.getTransaction().commit();
 			session.close();
+			return cita;
 
-			return fecha;
 		} catch (Exception e) {
 			session.getTransaction().rollback();
 			LOG.error(e.getMessage(), e);
 			return null;
 		}
-
 	}
 
-//	public void DoubleUpdate(int id1, int id2, String Estado) {
-//		Configuration configuration = new Configuration();
-//		configuration.configure("hibernate.cfg.xml");
-//		configuration.addAnnotatedClass(Fecha.class);
-//
-//		SessionFactory sessionFactory = configuration.buildSessionFactory();
-//
-//		Session session = sessionFactory.openSession();
-//
-//		try {
-//
-//			session.beginTransaction();
-//
-//			Fecha fecha = session.get(Fecha.class, id1);
-//			Fecha fecha2 = session.get(Fecha.class, id2);
-//
-//			fecha.setEstado(Estado);
-//			fecha2.setEstado(Estado);
-//			session.getTransaction().commit();
-//			session.close();
-//
-//		} catch (Exception e) {
-//			session.getTransaction().rollback();
-//			session.close();
-//			LOG.error(e.getMessage(), e);
-//
-//		}
-//
-//	}
+	public boolean update(Cita cita) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		configuration.addAnnotatedClass(Cita.class);
+
+		// Create Session Factory
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+		// Initialize Session Object
+		Session session = sessionFactory.openSession();
+
+		try {
+
+			session.beginTransaction();
+			Cita citaUpdate = session.get(Cita.class, cita.getId());
+
+			citaUpdate.setAsunto(cita.getAsunto());
+			citaUpdate.setTerminos(cita.getTerminos());
+			citaUpdate.setUsuarioId(cita.getUsuarioId());
+			citaUpdate.setAdministradorId(cita.getAdministradorId());
+			citaUpdate.setFechaId(cita.getFechaId());
+
+			session.getTransaction().commit();
+			session.close();
+			return true;
+
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			LOG.error(e.getMessage(), e);
+			return false;
+		}
+	}
 
 }

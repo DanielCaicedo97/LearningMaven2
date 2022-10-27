@@ -1,11 +1,11 @@
-package com.husogroup.service;
+package com.husogroup.service.impl;
 
 import org.apache.log4j.Logger;
 
-import com.husogroup.dao.CitaDao;
+import com.husogroup.dao.impl.CitaDaoImpl;
 import com.husogroup.model.Cita;
 
-public class CitaService {
+public class CitaServiceImpl {
 	private static final Logger LOG = Logger.getLogger(Cita.class);
 
 	public boolean create(int id, int usuarioId, int administradorId, int fechaId, String asunto, String terminos) {
@@ -20,7 +20,7 @@ public class CitaService {
 			cita.setAdministradorId(administradorId);
 			cita.setFechaId(fechaId);
 
-			return new CitaDao().create(cita);
+			return new CitaDaoImpl().create(cita);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);
@@ -32,7 +32,7 @@ public class CitaService {
 	public boolean delete(int id) {
 		try {
 
-			return new CitaDao().delete(id);
+			return new CitaDaoImpl().delete(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -44,7 +44,7 @@ public class CitaService {
 	public Cita get(int id) {
 
 		try {
-			return new CitaDao().get(id);
+			return new CitaDaoImpl().get(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -65,7 +65,7 @@ public class CitaService {
 			cita.setAdministradorId(administradorId);
 			cita.setFechaId(fechaId);
 
-			return new CitaDao().update(cita);
+			return new CitaDaoImpl().update(cita);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);
