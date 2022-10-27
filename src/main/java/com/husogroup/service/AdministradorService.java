@@ -1,15 +1,15 @@
-package com.husogroup.controller;
+package com.husogroup.service;
 
 import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.husogroup.classes.Administrador;
-import com.husogroup.model.AdministradorModel;
+import com.husogroup.dao.AdministradorDao;
+import com.husogroup.model.Administrador;
 
-public class AdministradorController {
+public class AdministradorService {
 
-	private static final Logger LOG = Logger.getLogger(AdministradorController.class);
+	private static final Logger LOG = Logger.getLogger(AdministradorService.class);
 
 	public boolean create(int id, String nombre, String apellido, String telefono, String documento,
 			String correoElectronico, int contrasena, String correoRecuperacion, Date ultimaSesion) {
@@ -27,7 +27,7 @@ public class AdministradorController {
 			administrador.setCorreoRecuperacion(correoRecuperacion);
 			administrador.setUltimaSesion(ultimaSesion);
 
-			return new AdministradorModel().create(administrador);
+			return new AdministradorDao().create(administrador);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);
@@ -39,7 +39,7 @@ public class AdministradorController {
 	public boolean delete(int id) {
 		try {
 
-			return new AdministradorModel().delete(id);
+			return new AdministradorDao().delete(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -51,20 +51,16 @@ public class AdministradorController {
 	public Administrador get(int id) {
 
 		try {
-			return new AdministradorModel().get(id);
+			return new AdministradorDao().get(id);
 
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			return null;
 		}
-
 	}
-	
+
 	public boolean Update(int id, String nombre, String apellido, String telefono, String documento,
 			String correoElectronico, int contrasena, String correoRecuperacion, Date ultimaSesion) {
-
-		
-		
 		try {
 
 			Administrador administrador = new Administrador();
@@ -78,14 +74,11 @@ public class AdministradorController {
 			administrador.setCorreoRecuperacion(correoRecuperacion);
 			administrador.setUltimaSesion(ultimaSesion);
 
-			return new AdministradorModel().update(administrador);
+			return new AdministradorDao().update(administrador);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);
 			return false;
 		}
-
 	}
-	
-
 }

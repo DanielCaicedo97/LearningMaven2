@@ -1,8 +1,8 @@
-package com.husogroup.classes;
+
 
 import org.apache.log4j.Logger;
 
-import com.husogroup.controller.UsuarioController;
+import com.husogroup.service.CitaService;
 
 // Main class
 public class App {
@@ -11,6 +11,27 @@ public class App {
 	// Main driver method
 	public static void main(String[] args) {
 
+		
+		String asunto = "Revision examenes Hemoglobina...";
+		String termino = "1";
+		int usuarioId = 1;
+		int fechaId = 1;
+		int administradorId = 60;
+		
+		boolean cita = new CitaService().create(administradorId, usuarioId, administradorId, fechaId, asunto, termino);
+		
+		
+		System.out.println(cita ? "Creado": "No Creado");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //		// Crear un usuario 
 //		String nombre = "Juan";
 //		String apellido = "Caicedo";
@@ -29,22 +50,22 @@ public class App {
 //		
 //		System.out.println(usuario!= null ? usuario.toString(): "valor Nulo");
 
-		// Actualizar un Usuario
-
-		try {
-
-			Usuario usuarioUpdate = new UsuarioController().get(22);
-			String nombre = usuarioUpdate.getNombre();
-			String apellido = usuarioUpdate.getApellido();
-			String documento = usuarioUpdate.getDocumento();
-			String telefono = "3185584749";
-			String correoElectronico = usuarioUpdate.getCorreoElectronico();
-			
-			new UsuarioController().update(usuarioUpdate.getId(), nombre, apellido, telefono, documento, correoElectronico);
-		} catch (Exception e) {
-			LOG.error(e.getStackTrace(), e);
-		}
-		
+//		// Actualizar un Usuario
+//
+//		try {
+//
+//			Usuario usuarioUpdate = new UsuarioService().get(1);
+//			String nombre = usuarioUpdate.getNombre();
+//			String apellido = usuarioUpdate.getApellido();
+//			String documento = usuarioUpdate.getDocumento();
+//			String telefono = "1234567890";
+//			String correoElectronico = usuarioUpdate.getCorreoElectronico();
+//			
+//			new UsuarioService().update(usuarioUpdate.getId(), nombre, apellido, telefono, documento, correoElectronico);
+//		} catch (Exception e) {
+//			LOG.error(e.getStackTrace(), e);
+//		}
+//		
 		// Borrar Usuario 
 
 		// Actualizar un Usuario

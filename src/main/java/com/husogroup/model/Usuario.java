@@ -1,4 +1,4 @@
-package com.husogroup.classes;
+package com.husogroup.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

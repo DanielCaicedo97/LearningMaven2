@@ -1,15 +1,15 @@
-package com.husogroup.model;
+package com.husogroup.dao;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.husogroup.classes.Usuario;
+import com.husogroup.model.Usuario;
 
-public class UsuarioModel {
+public class UsuarioDao {
 
-	private static final Logger LOG = Logger.getLogger(UsuarioModel.class);
+	private static final Logger LOG = Logger.getLogger(UsuarioDao.class);
 
 	public boolean create(Usuario usuario) {
 
@@ -70,12 +70,27 @@ public class UsuarioModel {
 
 	}
 
-	public boolean delete() {
+	public boolean delete(int id) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		configuration.addAnnotatedClass(Usuario.class);
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+		Session session = sessionFactory.openSession();
 
 		try {
 
+			session.beginTransaction();
+			Usuario usuario = session.get(Usuario.class, id);
+			session.delete(usuario);
+			session.getTransaction().commit();
+			session.close();
+
 			return true;
 		} catch (Exception e) {
+			session.getTransaction().rollback();
 
 			LOG.error(e.getMessage(), e);
 			return false;

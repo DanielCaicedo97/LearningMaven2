@@ -1,4 +1,4 @@
-package com.husogroup.classes;
+package com.husogroup.model;
 
 import java.util.Date;
 
@@ -63,7 +63,6 @@ public class Fecha {
 	public String toString() {
 		return "Fecha [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", estado=" + estado + "]";
 	}
-	
 	
 	
 

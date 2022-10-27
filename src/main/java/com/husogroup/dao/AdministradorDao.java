@@ -1,24 +1,20 @@
-package com.husogroup.controller;
-
-import java.util.Date;
+package com.husogroup.dao;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.husogroup.classes.Fecha;
+import com.husogroup.model.Administrador;
 
-public class FechaController {
+public class AdministradorDao {
 
-	private static final Logger LOG = Logger.getLogger(FechaController.class);
+	private static final Logger LOG = Logger.getLogger(AdministradorDao.class);
 
-	public boolean Create(Fecha fecha) {
-
-		// Create Configuration
+	public boolean create(Administrador administrador) {
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
+		configuration.addAnnotatedClass(Administrador.class);
 
 		// Create Session Factory
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -29,143 +25,108 @@ public class FechaController {
 		try {
 
 			session.beginTransaction();
-			session.save(fecha);
+			session.persist(administrador);
 			session.getTransaction().commit();
 			session.close();
 
 			return true;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return false;
-
-	}
-
-	public boolean Update(int id, Date dia, Date hora, String estado) {
-
-		// Create Configuration
-		Configuration configuration = new Configuration();
-		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
-
-		// Create Session Factory
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
-
-		// Initialize Session Object
-		Session session = sessionFactory.openSession();
-
-		try {
-
-			session.beginTransaction();
-			Fecha fecha = session.get(Fecha.class, id);
-
-			fecha.setFecha(dia);
-			fecha.setHora(hora);
-			fecha.setEstado(estado);
-
-			session.update(fecha);
-			session.getTransaction().commit();
-			session.close();
-
-			return true;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return false;
-
-	}
-
-	public boolean Delete(int id) {
-
-		// Create Configuration
-		Configuration configuration = new Configuration();
-		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
-
-		// Create Session Factory
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
-
-		// Initialize Session Object
-		Session session = sessionFactory.openSession();
-
-		try {
-
-			session.beginTransaction();
-			Fecha fecha = session.get(Fecha.class, id);
-			session.delete(fecha);
-			session.getTransaction().commit();
-			session.close();
-
-			return true;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return false;
-
-	}
-
-	public String Get(int id) {
-
-		Configuration configuration = new Configuration();
-		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
-
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
-
-		Session session = sessionFactory.openSession();
-
-		try {
-
-			session.beginTransaction();
-
-			Fecha fecha = session.get(Fecha.class, id);
-			session.getTransaction().commit();
-			session.close();
-
-			return fecha.toString();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return "Usuario no encontrado";
-
-	}
-
-	public void DoubleUpdate(int id1, int id2, String Estado) {
-		Configuration configuration = new Configuration();
-		configuration.configure("hibernate.cfg.xml");
-		configuration.addAnnotatedClass(Fecha.class);
-
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
-
-		Session session = sessionFactory.openSession();
-
-		try {
-
-			session.beginTransaction();
-
-			Fecha fecha = session.get(Fecha.class, id1);
-			Fecha fecha2 = session.get(Fecha.class, id2);
-
-			fecha.setEstado(Estado);
-			fecha2.setEstado(Estado);
-			session.getTransaction().commit();
-			session.close();
 
 		} catch (Exception e) {
 			session.getTransaction().rollback();
-			session.close();
 			LOG.error(e.getMessage(), e);
-
+			return false;
 		}
+	};
 
+	public boolean delete(int id) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		configuration.addAnnotatedClass(Administrador.class);
+
+		// Create Session Factory
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+		// Initialize Session Object
+		Session session = sessionFactory.openSession();
+
+		try {
+
+			session.beginTransaction();
+			Administrador admin = session.get(Administrador.class, id);
+
+			session.delete(admin);
+			session.getTransaction().commit();
+			session.close();
+			return true;
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+			return false;
+		}
 	}
 
+	public Administrador get(int id) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		configuration.addAnnotatedClass(Administrador.class);
+
+		// Create Session Factory
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+		// Initialize Session Object
+		Session session = sessionFactory.openSession();
+
+		try {
+
+			session.beginTransaction();
+			Administrador admin = session.get(Administrador.class, id);
+
+			session.getTransaction().commit();
+			session.close();
+			return admin;
+
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			LOG.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
+	public boolean update(Administrador admin) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		configuration.addAnnotatedClass(Administrador.class);
+
+		// Create Session Factory
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+		// Initialize Session Object
+		Session session = sessionFactory.openSession();
+
+		try {
+
+			session.beginTransaction();
+			Administrador adminUpdate = session.get(Administrador.class, admin.getId());
+
+			adminUpdate.setNombre(admin.getNombre());
+			adminUpdate.setApellido(admin.getApellido());
+			adminUpdate.setDocumento(admin.getDocumento());
+			adminUpdate.setTelefono(admin.getTelefono());
+			adminUpdate.setCorreoElectronico(admin.getCorreoElectronico());
+			adminUpdate.setCorreoRecuperacion(admin.getCorreoRecuperacion());
+			adminUpdate.setContrasena(admin.getContrasena());
+			adminUpdate.setUltimaSesion(admin.getUltimaSesion());
+
+			session.getTransaction().commit();
+			session.close();
+			return true;
+
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			LOG.error(e.getMessage(), e);
+			return false;
+		}
+	}
 }

@@ -1,14 +1,13 @@
-package com.husogroup.controller;
+package com.husogroup.service;
 
 import org.apache.log4j.Logger;
 
-import com.husogroup.classes.App;
-import com.husogroup.classes.Usuario;
-import com.husogroup.model.UsuarioModel;
+import com.husogroup.dao.UsuarioDao;
+import com.husogroup.model.Usuario;
 
-public class UsuarioController {
+public class UsuarioService {
 
-	private static final Logger LOG = Logger.getLogger(UsuarioController.class);
+	private static final Logger LOG = Logger.getLogger(UsuarioService.class);
 
 	public boolean create(int id, String nombre, String apellido, String telefono, String documento,
 			String correoElectronico) {
@@ -24,7 +23,7 @@ public class UsuarioController {
 			usuario.setTelefono(telefono);
 			usuario.setCorreoElectronico(correoElectronico);
 
-			return new UsuarioModel().create(usuario);
+			return new UsuarioDao().create(usuario);
 
 		} catch (Exception e) {
 
@@ -49,7 +48,7 @@ public class UsuarioController {
 			usuario.setCorreoElectronico(correoElectronico);
 			
 			
-			return new UsuarioModel().update(usuario);
+			return new UsuarioDao().update(usuario);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);
@@ -75,7 +74,7 @@ public class UsuarioController {
 
 		try {
 
-			return new UsuarioModel().get(id);
+			return new UsuarioDao().get(id);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);

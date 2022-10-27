@@ -1,22 +1,29 @@
-package com.husogroup.classes;
+package com.husogroup.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "cita")
 public class Cita {
 
+	@Id
+	@Column
 	private int id;
+	@Column
 	private int administradorId;
+	@Column
 	private int usuarioId;
+	@Column
 	private int fechaId;
-	private String asuntos;
+	@Column
+	private String asunto;
+	@Column
 	private String terminos;
 
-	public Cita(int id, int administradorId, int usuarioId, int fechaId, String asuntos, String terminos) {
-		super();
-		this.id = id;
-		this.administradorId = administradorId;
-		this.usuarioId = usuarioId;
-		this.fechaId = fechaId;
-		this.asuntos = asuntos;
-		this.terminos = terminos;
+	public Cita() {
 	}
 
 	public int getId() {
@@ -51,12 +58,12 @@ public class Cita {
 		this.fechaId = fechaId;
 	}
 
-	public String getAsuntos() {
-		return asuntos;
+	public String getAsunto() {
+		return asunto;
 	}
 
-	public void setAsuntos(String asuntos) {
-		this.asuntos = asuntos;
+	public void setAsunto(String asunto) {
+		this.asunto = asunto;
 	}
 
 	public String getTerminos() {
