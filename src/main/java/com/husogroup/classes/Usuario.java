@@ -1,22 +1,28 @@
 package com.husogroup.classes;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "usuario")
 public class Usuario {
+	@Id
+	@Column
 	private int id;
+	@Column
 	private String nombre;
-	private String apellido;
+	@Column
 	private String telefono;
+	@Column
+	private String apellido;
+	@Column
 	private String correoElectronico;
+	@Column
 	private String documento;
 
-	public Usuario(int id, String nombre, String apellido, String telefono, String correoElectronico,
-			String documento) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.telefono = telefono;
-		this.correoElectronico = correoElectronico;
-		this.documento = documento;
+	public Usuario() {
 	}
 
 	public int getId() {
@@ -67,4 +73,13 @@ public class Usuario {
 		this.documento = documento;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", apellido=" + apellido
+				+ ", correoElectronico=" + correoElectronico + ", documento=" + documento + "]";
+	}
+
+	
+	
+	
 }

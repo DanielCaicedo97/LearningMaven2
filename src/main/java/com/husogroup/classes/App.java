@@ -1,14 +1,53 @@
 package com.husogroup.classes;
 
-import java.util.Date;
+import org.apache.log4j.Logger;
 
-import com.husogroup.controller.AdministradorController;
+import com.husogroup.controller.UsuarioController;
 
 // Main class
 public class App {
+	private static final Logger LOG = Logger.getLogger(App.class);
 
 	// Main driver method
 	public static void main(String[] args) {
+
+//		// Crear un usuario 
+//		String nombre = "Juan";
+//		String apellido = "Caicedo";
+//		String documento = "1234189060";
+//		String telefono = "3251275";
+//		String correoElectronico = "Juan@gmail.com";
+//
+//		boolean UsuarioCreate = new UsuarioController().create(0, nombre, apellido, telefono, documento,
+//				correoElectronico);
+//
+//		System.out.println(UsuarioCreate ? "Creado" : "No Creado");
+
+//		// Obtener un Usuario 
+//		
+//		Usuario usuario = new UsuarioController().get(25);
+//		
+//		System.out.println(usuario!= null ? usuario.toString(): "valor Nulo");
+
+		// Actualizar un Usuario
+
+		try {
+
+			Usuario usuarioUpdate = new UsuarioController().get(22);
+			String nombre = usuarioUpdate.getNombre();
+			String apellido = usuarioUpdate.getApellido();
+			String documento = usuarioUpdate.getDocumento();
+			String telefono = "3185584749";
+			String correoElectronico = usuarioUpdate.getCorreoElectronico();
+			
+			new UsuarioController().update(usuarioUpdate.getId(), nombre, apellido, telefono, documento, correoElectronico);
+		} catch (Exception e) {
+			LOG.error(e.getStackTrace(), e);
+		}
+		
+		// Borrar Usuario 
+
+		// Actualizar un Usuario
 
 		// Creando un Administrador
 //
@@ -22,27 +61,39 @@ public class App {
 //				correoElectronico, contrasena, correoRecuperacion, ultimaSesion);
 //		
 //		System.out.println(admin ? "Creado" : "no creado");
-
-		// Consultando Administrador
-
-		Administrador adminConsulta = new AdministradorController().get(3);
-		System.out.println(adminConsulta != null ? adminConsulta.toString() : "no es posible consultarlo");
-
-		// Eliminando Administrador
-		boolean adminDelete = new AdministradorController().delete(3);
-		System.out.println(adminDelete ? "eliminado" : "no es posible Eliminarlo");
-
-		// Actualizando la hora del sesion del administrador
-		Administrador adminUpdate = new AdministradorController().get(4);
-
-		Date nuevaSession = new Date();
-
-		boolean adminUpdated = new AdministradorController().Update( adminUpdate.getId(), adminUpdate.getNombre(),
-				adminUpdate.getApellido(), adminUpdate.getTelefono(), adminUpdate.getDocumento(),
-				adminUpdate.getCorreoElectronico(), adminUpdate.getContrasena(), adminUpdate.getCorreoRecuperacion(),
-				nuevaSession);
-		
-		System.out.println(adminUpdated? "Actualizado" : "no es posible Actualizar");
+//
+//		// Consultando Administrador
+//
+//		Administrador adminConsulta = new AdministradorController().get(3);
+//		System.out.println(adminConsulta != null ? adminConsulta.toString() : "no es posible consultarlo");
+//
+//		// Eliminando Administrador
+//		boolean adminDelete = new AdministradorController().delete(3);
+//		System.out.println(adminDelete ? "eliminado" : "no es posible Eliminarlo");
+//
+//		// Actualizando la hora del sesion del administrador
+//
+//		try {
+//			Administrador adminUpdate = new AdministradorController().get(20);
+//
+//			Date nuevaSession = new Date();
+//
+//			String nombre = adminUpdate.getNombre();
+//			String apellido = adminUpdate.getApellido();
+//			String telefono = adminUpdate.getTelefono();
+//			String documento = adminUpdate.getDocumento();
+//			String correoElectronico = adminUpdate.getCorreoElectronico();
+//			int contrasena = adminUpdate.getContrasena();
+//			String correoRecuperacion = adminUpdate.getCorreoRecuperacion();
+//
+//			boolean adminUpdated = new AdministradorController().Update(adminUpdate.getId(), nombre, apellido, telefono,
+//					documento, correoElectronico, contrasena, correoRecuperacion, nuevaSession);
+//
+//			System.out.println(adminUpdated ? "Actualizado" : "no es posible Actualizar");
+//		} catch (Exception e) {
+//			LOG.error(e.getMessage(), e);
+//			System.out.println("Error Catch: no es posible Actualizar ");
+//		}
 		/*
 		 * 
 		 * System.out.println("Iniciando Programa ...");

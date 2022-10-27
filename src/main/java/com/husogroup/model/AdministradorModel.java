@@ -92,7 +92,7 @@ public class AdministradorModel {
 			return null;
 		}
 	}
-	
+
 	public boolean update(Administrador admin) {
 
 		Configuration configuration = new Configuration();
@@ -109,7 +109,7 @@ public class AdministradorModel {
 
 			session.beginTransaction();
 			Administrador adminUpdate = session.get(Administrador.class, admin.getId());
-			
+
 			adminUpdate.setNombre(admin.getNombre());
 			adminUpdate.setApellido(admin.getApellido());
 			adminUpdate.setDocumento(admin.getDocumento());
@@ -118,7 +118,7 @@ public class AdministradorModel {
 			adminUpdate.setCorreoRecuperacion(admin.getCorreoRecuperacion());
 			adminUpdate.setContrasena(admin.getContrasena());
 			adminUpdate.setUltimaSesion(admin.getUltimaSesion());
-			
+
 			session.getTransaction().commit();
 			session.close();
 			return true;

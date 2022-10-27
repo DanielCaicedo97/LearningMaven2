@@ -3,3 +3,12 @@
 [2022-10-24 16:46:52] [ INFO ] [App:21] jakarta.persistence.PersistenceException: Converting `org.hibernate.exception.DataException` to JPA `PersistenceException` : could not execute statement
 [2022-10-24 16:47:50] [ INFO ] [App:21] jakarta.persistence.PersistenceException: Converting `org.hibernate.exception.DataException` to JPA `PersistenceException` : could not execute statement
 [2022-10-24 16:50:23] [ INFO ] [App:21] Actualizado
+[2022-10-25 16:56:49] [ ERROR] [App:58] Cannot invoke "com.husogroup.classes.Administrador.getNombre()" because "adminUpdate" is null
+java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Administrador.getNombre()" because "adminUpdate" is null
+	at com.husogroup.classes.App.main(App.java:45)
+[2022-10-25 16:57:39] [ ERROR] [App:58] Cannot invoke "com.husogroup.classes.Administrador.getNombre()" because "adminUpdate" is null
+java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Administrador.getNombre()" because "adminUpdate" is null
+	at com.husogroup.classes.App.main(App.java:45)
+[2022-10-26 15:17:29] [ ERROR] [App:45] [Ljava.lang.StackTraceElement;@62b475e2
+java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Usuario.getNombre()" because "usuarioUpdate" is null
+	at com.husogroup.classes.App.main(App.java:37)

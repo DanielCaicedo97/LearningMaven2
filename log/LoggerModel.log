@@ -344,3 +344,38 @@ java.lang.IllegalArgumentException: attempt to create delete event with null ent
 	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
 	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
 	at com.husogroup.classes.App.main(App.java:32)
+[2022-10-25 16:53:04] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:32)
+[2022-10-25 16:53:42] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:32)
+[2022-10-25 16:54:12] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:32)
+[2022-10-25 16:56:48] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:35)
+[2022-10-25 16:57:38] [ ERROR] [AdministradorModel:63] attempt to create delete event with null entity
+java.lang.IllegalArgumentException: attempt to create delete event with null entity
+	at org.hibernate.event.spi.DeleteEvent.<init>(DeleteEvent.java:31)
+	at org.hibernate.internal.SessionImpl.delete(SessionImpl.java:872)
+	at com.husogroup.model.AdministradorModel.delete(AdministradorModel.java:58)
+	at com.husogroup.controller.AdministradorController.delete(AdministradorController.java:42)
+	at com.husogroup.classes.App.main(App.java:35)
