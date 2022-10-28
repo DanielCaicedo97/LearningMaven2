@@ -5,9 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.husogroup.dao.api.UsuarioDaoAPI;
 import com.husogroup.model.Usuario;
 
-public class UsuarioDaoImpl {
+public class UsuarioDaoImpl implements UsuarioDaoAPI{
 
 	private static final Logger LOG = Logger.getLogger(UsuarioDaoImpl.class);
 
@@ -84,7 +85,7 @@ public class UsuarioDaoImpl {
 
 			session.beginTransaction();
 			Usuario usuario = session.get(Usuario.class, id);
-			session.delete(usuario);
+			session.remove(usuario);
 			session.getTransaction().commit();
 			session.close();
 

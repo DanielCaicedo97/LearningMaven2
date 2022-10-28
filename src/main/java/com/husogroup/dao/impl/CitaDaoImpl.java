@@ -5,9 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.husogroup.dao.api.CitaDaoAPI;
 import com.husogroup.model.Cita;
 
-public class CitaDaoImpl {
+public class CitaDaoImpl implements CitaDaoAPI{
 
 	private static final Logger LOG = Logger.getLogger(CitaDaoImpl.class);
 
@@ -53,7 +54,7 @@ public class CitaDaoImpl {
 			session.beginTransaction();
 			Cita cita = session.get(Cita.class, id);
 
-			session.delete(cita);
+			session.remove(cita);
 			session.getTransaction().commit();
 			session.close();
 			return true;

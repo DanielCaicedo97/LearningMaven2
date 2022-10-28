@@ -1,5 +1,15 @@
 package com.husogroup.dao.api;
 
-public class FechaDaoAPI {
+import com.husogroup.model.Fecha;
+
+public interface FechaDaoAPI {
+
+	boolean create(Fecha fecha);
+
+	boolean update(Fecha fecha);
+
+	boolean delete(int id);
+
+	Fecha get(int id);
 
 }

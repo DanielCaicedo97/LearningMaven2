@@ -6,8 +6,9 @@ import org.apache.log4j.Logger;
 
 import com.husogroup.dao.impl.FechaDaoImpl;
 import com.husogroup.model.Fecha;
+import com.husogroup.service.api.FechaServiceAPI;
 
-public class FechaServiceImpl {
+public class FechaServiceImpl implements FechaServiceAPI {
 
 	private static final Logger LOG = Logger.getLogger(FechaServiceImpl.class);
 

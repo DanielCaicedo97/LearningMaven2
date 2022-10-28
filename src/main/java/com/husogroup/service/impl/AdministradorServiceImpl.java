@@ -6,8 +6,9 @@ import org.apache.log4j.Logger;
 
 import com.husogroup.dao.impl.AdministradorDaoImpl;
 import com.husogroup.model.Administrador;
+import com.husogroup.service.api.AdministradorServiceAPI;
 
-public class AdministradorServiceImpl {
+public class AdministradorServiceImpl implements AdministradorServiceAPI{
 
 	private static final Logger LOG = Logger.getLogger(AdministradorServiceImpl.class);
 
@@ -59,7 +60,7 @@ public class AdministradorServiceImpl {
 		}
 	}
 
-	public boolean Update(int id, String nombre, String apellido, String telefono, String documento,
+	public boolean update(int id, String nombre, String apellido, String telefono, String documento,
 			String correoElectronico, int contrasena, String correoRecuperacion, Date ultimaSesion) {
 		try {
 

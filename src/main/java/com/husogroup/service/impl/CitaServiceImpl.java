@@ -4,8 +4,9 @@ import org.apache.log4j.Logger;
 
 import com.husogroup.dao.impl.CitaDaoImpl;
 import com.husogroup.model.Cita;
+import com.husogroup.service.api.CitaServiceAPI;
 
-public class CitaServiceImpl {
+public class CitaServiceImpl implements CitaServiceAPI {
 	private static final Logger LOG = Logger.getLogger(Cita.class);
 
 	public boolean create(int id, int usuarioId, int administradorId, int fechaId, String asunto, String terminos) {
@@ -56,7 +57,6 @@ public class CitaServiceImpl {
 	public boolean update(int id, int usuarioId, int administradorId, int fechaId, String asunto, String terminos) {
 
 		try {
-
 			Cita cita = new Cita();
 			cita.setId(id);
 			cita.setAsunto(asunto);

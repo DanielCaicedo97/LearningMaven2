@@ -5,9 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.husogroup.dao.api.FechaDaoAPI;
 import com.husogroup.model.Fecha;
 
-public class FechaDaoImpl {
+public class FechaDaoImpl implements FechaDaoAPI {
 
 	private static final Logger LOG = Logger.getLogger(FechaDaoImpl.class);
 
@@ -82,7 +83,7 @@ public class FechaDaoImpl {
 
 			session.beginTransaction();
 			Fecha fecha = session.get(Fecha.class, id);
-			session.delete(fecha);
+			session.remove(fecha);
 			session.getTransaction().commit();
 			session.close();
 

@@ -5,9 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.husogroup.dao.api.AdministradorDaoAPI;
 import com.husogroup.model.Administrador;
 
-public class AdministradorDaoImpl {
+public class AdministradorDaoImpl implements AdministradorDaoAPI{
 
 	private static final Logger LOG = Logger.getLogger(AdministradorDaoImpl.class);
 
@@ -55,7 +56,7 @@ public class AdministradorDaoImpl {
 			session.beginTransaction();
 			Administrador admin = session.get(Administrador.class, id);
 
-			session.delete(admin);
+			session.remove(admin);
 			session.getTransaction().commit();
 			session.close();
 			return true;

@@ -4,8 +4,9 @@ import org.apache.log4j.Logger;
 
 import com.husogroup.dao.impl.UsuarioDaoImpl;
 import com.husogroup.model.Usuario;
+import com.husogroup.service.api.UsuarioServiceAPI;
 
-public class UsuarioServiceImpl {
+public class UsuarioServiceImpl implements UsuarioServiceAPI{
 
 	private static final Logger LOG = Logger.getLogger(UsuarioServiceImpl.class);
 
@@ -57,11 +58,11 @@ public class UsuarioServiceImpl {
 
 	}
 
-	public boolean delete() {
+	public boolean delete(int id) {
 
 		try {
 
-			return true;
+			return new UsuarioDaoImpl().delete(id);
 		} catch (Exception e) {
 
 			LOG.error(e.getMessage(), e);
