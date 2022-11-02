@@ -1,5 +1,7 @@
 package com.husogroup.model;
 
+import java.util.Objects;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -77,6 +79,25 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", apellido=" + apellido
 				+ ", correoElectronico=" + correoElectronico + ", documento=" + documento + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		int codigo = 32;
+		codigo = codigo*123 + Integer.parseInt(documento)*5; 
+		return codigo;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return Objects.equals(documento, other.documento);
 	}
 
 	

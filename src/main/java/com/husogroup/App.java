@@ -1,29 +1,67 @@
 package com.husogroup;
 
+import java.util.Date;
 
-import org.apache.log4j.Logger;
+import com.husogroup.controller.FechaController;
 
 // Main class
 public class App {
-	private static final Logger LOG = Logger.getLogger(App.class);
+	// private static final Logger LOG = Logger.getLogger(App.class);
 
 	// Main driver method
 	public static void main(String[] args) {
 
-		
-		
-		// Creando Exepciones 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		// Crear FECHA //
+		Date fecha = new Date();
+		Date hora = new Date();
+
+			boolean crearFecha = new FechaController().create(0, fecha, hora, "0");
+			System.out.println(crearFecha);
+
+//		// Manejo de String  
+//		
+//		String nombre = "Daniel";
+//		String nombre2 = new String ("Daniel");
+//		
+//		System.out.println(nombre == nombre2);// Analliza la igualdad revisando el puntero de la cadena
+//		System.out.println(nombre.equals(nombre2));
+//		
+//		
+//		Usuario usuario = new Usuario();
+//		Usuario usuario2 = new Usuario();
+//		usuario.setId(0);
+//		usuario.setNombre("Daniel");
+//		usuario.setApellido("Caicedo");
+//		usuario.setDocumento("1234");
+//		usuario.setTelefono("318000");
+//		usuario.setCorreoElectronico("daniel@correo.com");
+//		
+//		usuario2.setId(0);
+//		usuario2.setNombre("Daniel");
+//		usuario2.setApellido("Caicedo");
+//		usuario2.setDocumento("1234");
+//		usuario2.setTelefono("318000");
+//		usuario2.setCorreoElectronico("daniel@correo.com");
+//		
+//		
+//		if(usuario.equals(usuario2)) {
+//			
+//			System.out.println("Son iguales");
+//			System.out.println(usuario.hashCode());
+//			System.out.println(usuario2.hashCode());
+//			
+//		}else {
+//			
+//			System.out.println("Son diferentes");
+//			System.out.println(usuario.hashCode());
+//			System.out.println(usuario2.hashCode());
+//			
+//		}
+//		 
+//		
+
+		// Creando Exepciones
+
 //		// Crear Cita
 //		String asunto = "Revision examenes Hemoglobina...";
 //		String termino = "1";
@@ -34,16 +72,7 @@ public class App {
 //		boolean cita = new CitaService().create(administradorId, usuarioId, administradorId, fechaId, asunto, termino);
 //		
 //		System.out.println(cita ? "Creado": "No Creado");
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 //		// Crear un usuario 
 //		String nombre = "Juan";
 //		String apellido = "Caicedo";
@@ -78,7 +107,7 @@ public class App {
 //			LOG.error(e.getStackTrace(), e);
 //		}
 //		
-		// Borrar Usuario 
+		// Borrar Usuario
 
 		// Actualizar un Usuario
 

@@ -1,6 +1,7 @@
 package com.husogroup.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -113,6 +114,25 @@ public class Administrador {
 				+ ", correoRecuperacion=" + correoRecuperacion + ", ultimaSesion=" + ultimaSesion + "]";
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(documento, id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Administrador other = (Administrador) obj;
+		return Objects.equals(documento, other.documento) && id == other.id;
+	} 
+
+	
+	
 	
 	
 }

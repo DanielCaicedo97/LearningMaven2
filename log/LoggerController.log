@@ -1,0 +1,10 @@
+[2022-11-02 15:47:35] [ ERROR] [FechaController:27] WARNLas fecha no debe ser igual a la actualValor de Fecha incorrecto
+[2022-11-02 15:48:48] [ ERROR] [FechaController:27] WARNLas fecha no debe ser igual a la actualValor de Fecha incorrecto
+[2022-11-02 15:49:24] [ ERROR] [FechaController:27] WARNLas fecha no debe ser igual a la actual Valor de Fecha incorrecto 
+[2022-11-02 15:49:54] [ ERROR] [FechaController:27] WARN La fecha no debe ser igual a la fecha actual Valor de Fecha incorrecto 
+[2022-11-02 15:53:45] [ ERROR] [FechaController:30] Severidad: WARN
+ Tipo de Error:  La fecha no debe ser igual a la fecha actual 
+ Debido a: Valor de Fecha incorrecto 
+[2022-11-02 15:54:31] [ ERROR] [FechaController:30] Severidad: WARN
+Tipo de Error: La fecha no debe ser igual a la fecha actual
+Debido a: Valor de Fecha incorrecto

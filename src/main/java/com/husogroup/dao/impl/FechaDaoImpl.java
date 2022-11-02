@@ -32,8 +32,7 @@ public class FechaDaoImpl implements FechaDaoAPI {
 			return true;
 		} catch (Exception e) {
 			session.getTransaction().rollback();
-			LOG.error(e.getMessage(), e);
-			return false;
+			 throw e;
 		}
 
 	}
