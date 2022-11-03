@@ -2,11 +2,16 @@ package com.husogroup;
 
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+
 import com.husogroup.controller.FechaController;
+import com.husogroup.exception.AppException;
+import com.husogroup.service.impl.FechaServiceImpl;
 
 // Main class
 public class App {
 	// private static final Logger LOG = Logger.getLogger(App.class);
+	private static final Logger LOG = Logger.getLogger(App.class);
 
 	// Main driver method
 	public static void main(String[] args) {
@@ -14,9 +19,27 @@ public class App {
 		// Crear FECHA //
 		Date fecha = new Date();
 		Date hora = new Date();
-
-			boolean crearFecha = new FechaController().create(0, fecha, hora, "0");
+		try {
+			boolean crearFecha = new FechaServiceImpl().create(0, fecha, hora, "0");
 			System.out.println(crearFecha);
+
+		} catch (AppException e) {
+
+			StringBuilder message = new StringBuilder();
+			message.append("Severidad: ");
+			message.append(e.getDetails().getSeverityEnum());
+			message.append("\nTipo de Error: ");
+			message.append(e.getMessage());
+			message.append("\nDebido a: ");
+			message.append(e.getDetails().getKey());
+
+			LOG.error(message, e);
+
+			System.out.println(message);
+
+		} catch (Exception e) {
+			LOG.error(e.getMessage());
+		}
 
 //		// Manejo de String  
 //		

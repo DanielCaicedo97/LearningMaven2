@@ -12,3 +12,9 @@ java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Administrad
 [2022-10-26 15:17:29] [ ERROR] [App:45] [Ljava.lang.StackTraceElement;@62b475e2
 java.lang.NullPointerException: Cannot invoke "com.husogroup.classes.Usuario.getNombre()" because "usuarioUpdate" is null
 	at com.husogroup.classes.App.main(App.java:37)
+[2022-11-03 08:40:25] [ ERROR] [App:35] Severidad: WARN
+Tipo de Error: La fecha no debe ser igual a la fecha actual
+Debido a: Valor de Fecha incorrecto
+com.husogroup.exception.AppException: La fecha no debe ser igual a la fecha actual
+	at com.husogroup.service.impl.FechaServiceImpl.create(FechaServiceImpl.java:23)
+	at com.husogroup.App.main(App.java:22)

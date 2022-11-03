@@ -27,7 +27,7 @@ public class FechaController {
 			message.append("\nDebido a: ");
 			message.append(e.getDetails().getKey());
 
-			LOG.error(message);
+			LOG.warn(message,e);
 
 			System.out.println(message);
 

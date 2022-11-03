@@ -8,3 +8,13 @@
 [2022-11-02 15:54:31] [ ERROR] [FechaController:30] Severidad: WARN
 Tipo de Error: La fecha no debe ser igual a la fecha actual
 Debido a: Valor de Fecha incorrecto
+[2022-11-02 16:53:46] [ WARN ] [FechaController:30] Severidad: WARN
+Tipo de Error: La fecha no debe ser igual a la fecha actual
+Debido a: Valor de Fecha incorrecto
+[2022-11-02 16:56:01] [ WARN ] [FechaController:30] Severidad: WARN
+Tipo de Error: La fecha no debe ser igual a la fecha actual
+Debido a: Valor de Fecha incorrecto
+com.husogroup.exception.AppException: La fecha no debe ser igual a la fecha actual
+	at com.husogroup.service.impl.FechaServiceImpl.create(FechaServiceImpl.java:23)
+	at com.husogroup.controller.FechaController.create(FechaController.java:17)
+	at com.husogroup.App.main(App.java:18)
